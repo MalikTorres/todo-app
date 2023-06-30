@@ -36,3 +36,6 @@ to run tests, after running `npm i`, run the command `npm test`
 ![UML image](./assets/lab31-uml.png)
 
 
+![UML image](./assets/lab32-uml.png)
+
+![UML image](./assets/lab33-uml.png)
