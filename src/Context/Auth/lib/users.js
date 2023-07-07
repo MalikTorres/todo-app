@@ -1,4 +1,4 @@
-const testUsers = {
+const s = {
   Admininistrator: {
     password: 'admin',
     name: 'Administrator',
@@ -21,4 +21,4 @@ const testUsers = {
   },
 };
 
-export default testUsers;
+export default s;

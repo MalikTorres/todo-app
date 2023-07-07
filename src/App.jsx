@@ -1,30 +1,28 @@
 import { useContext } from 'react';
 
-// import Todo from './Components/Todo';
+import Todo from './Components/Todo';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import Auth from './Components/Auth';
-import { SettingsContext } from './Context/Settings';
+import SettingsForm from './Components/SettingsForm';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { When } from 'react-if';
+import { AuthContext } from './Context/Auth';
 
 function App() {
 
-  const { title, email } = useContext(SettingsContext)
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <>
-    <Header />
-  <Auth capability="read">
-    <p>I can read!</p>
-  </Auth>
-  <Auth capability="create">
-    <p>I can create!</p>
-  </Auth>
-  <Auth capability="update">
-    <p>I can update!</p>
-  </Auth>
-  <Auth capability="delete">
-    <p>I can delete!</p>
-  </Auth>
-    <Footer />
+      <BrowserRouter>
+        <Header />
+        <When condition={isLoggedIn}>
+          <Routes>
+            <Route path='/' element={<Todo />} />
+            <Route path='/settings' elemtn={<SettingsForm />} />
+          </Routes>
+        </When>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 
