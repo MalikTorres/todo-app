@@ -23,7 +23,7 @@ function AuthProvider({ children } ) {
   }
 
   const login = (username, password) => {
-    let user = testUser[username];
+    let user = testUsers[username];
     if (user && user.password === password) {
       try {
         _validateToken(user.token);
